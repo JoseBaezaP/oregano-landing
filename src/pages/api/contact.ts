@@ -1,12 +1,10 @@
 import type { APIRoute } from 'astro';
 import type { ContactFormData } from '../../core/interfaces/EmailService';
 
-export const prerender = false;
-
 export const POST: APIRoute = async ({ request }) => {
   try {
     const data: ContactFormData = await request.json();
-    
+
     if (!data.name || !data.email || !data.message) {
       return new Response(
         JSON.stringify({ error: 'Missing required fields' }),
@@ -15,7 +13,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     console.log('Contact form submission:', data);
-    
+
     return new Response(
       JSON.stringify({ success: true, message: 'Email sent successfully' }),
       { status: 200 }
