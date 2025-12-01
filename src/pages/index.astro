@@ -1,16 +1,31 @@
 ---
+import Layout from '../presentation/layouts/Layout.astro';
+import Header from '../presentation/components/Header.astro';
+import Hero from '../presentation/components/Hero.astro';
+import About from '../presentation/components/About.astro';
+import Products from '../presentation/components/Products.astro';
+import Testimonials from '../presentation/components/Testimonials.astro';
+import ContactForm from '../presentation/components/ContactForm';
+import Footer from '../presentation/components/Footer.astro';
+import { getTranslations } from '../shared/utils/i18n';
+import '../styles/global.css';
 
+const t = getTranslations('es');
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout 
+  lang="es" 
+  title="Inicio" 
+  description="Orégano Premium - El mejor orégano natural para tus recetas. 100% natural cultivado con los más altos estándares de calidad."
+  image="/RaizDelSol.png"
+>
+  <Header lang="es" />
+  <main>
+    <Hero lang="es" />
+    <About lang="es" />
+    <Products lang="es" />
+    <Testimonials lang="es" />
+    <ContactForm client:load lang="es" translations={t.contact} />
+  </main>
+  <Footer lang="es" />
+</Layout>

@@ -1,0 +1,31 @@
+---
+import Layout from '../presentation/layouts/Layout.astro';
+import Header from '../presentation/components/Header.astro';
+import Hero from '../presentation/components/Hero.astro';
+import About from '../presentation/components/About.astro';
+import Products from '../presentation/components/Products.astro';
+import Testimonials from '../presentation/components/Testimonials.astro';
+import ContactForm from '../presentation/components/ContactForm';
+import Footer from '../presentation/components/Footer.astro';
+import { getTranslations } from '../shared/utils/i18n';
+import '../styles/global.css';
+
+const t = getTranslations('en');
+---
+
+<Layout 
+  lang="en" 
+  title="Home" 
+  description="Premium Quality Oregano - The best natural oregano for your recipes. 100% natural grown with highest quality standards."
+  image="/RaizDelSol.png"
+>
+  <Header lang="en" />
+  <main>
+    <Hero lang="en" />
+    <About lang="en" />
+    <Products lang="en" />
+    <Testimonials lang="en" />
+    <ContactForm client:load lang="en" translations={t.contact} />
+  </main>
+  <Footer lang="en" />
+</Layout>

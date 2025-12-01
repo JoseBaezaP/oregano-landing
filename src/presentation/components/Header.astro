@@ -1,0 +1,36 @@
+---
+import { getTranslations } from '../../shared/utils/i18n';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const t = getTranslations(lang);
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+  <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <img src="/RaizDelSol.png" alt="Logo" class="h-12 w-auto" />
+      <span class="text-xl font-bold text-green-700">Orégano Premium</span>
+    </div>
+    
+    <ul class="hidden md:flex gap-8 items-center">
+      <li><a href={`${lang === 'en' ? '/en' : lang === 'it' ? '/it' : ''}#home`} class="hover:text-green-600 transition">{t.nav.home}</a></li>
+      <li><a href={`${lang === 'en' ? '/en' : lang === 'it' ? '/it' : ''}#about`} class="hover:text-green-600 transition">{t.nav.about}</a></li>
+      <li><a href={`${lang === 'en' ? '/en' : lang === 'it' ? '/it' : ''}#products`} class="hover:text-green-600 transition">{t.nav.products}</a></li>
+      <li><a href={`${lang === 'en' ? '/en' : lang === 'it' ? '/it' : ''}#testimonials`} class="hover:text-green-600 transition">{t.nav.testimonials}</a></li>
+      <li><a href={`${lang === 'en' ? '/en' : lang === 'it' ? '/it' : ''}#contact`} class="hover:text-green-600 transition">{t.nav.contact}</a></li>
+    </ul>
+
+    <div class="flex gap-4 items-center">
+      <a href="/" class={`text-sm ${currentPath === '/' ? 'font-bold text-green-600' : 'text-gray-600'}`}>ES</a>
+      <span class="text-gray-400">|</span>
+      <a href="/en" class={`text-sm ${currentPath === '/en' ? 'font-bold text-green-600' : 'text-gray-600'}`}>EN</a>
+      <span class="text-gray-400">|</span>
+      <a href="/it" class={`text-sm ${currentPath === '/it' ? 'font-bold text-green-600' : 'text-gray-600'}`}>IT</a>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,51 @@
+---
+import { getTranslations } from '../../shared/utils/i18n';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const t = getTranslations(lang);
+---
+
+<section id="about" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center space-y-6">
+      <h2 class="text-4xl font-bold text-green-800">{t.about.title}</h2>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        {t.about.description}
+      </p>
+      
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
+        <div class="p-6 bg-green-50 rounded-lg">
+          <div class="text-4xl mb-4">🌿</div>
+          <h3 class="text-xl font-semibold mb-2 text-green-700">100% Natural</h3>
+          <p class="text-gray-600">
+            {lang === 'es' ? 'Sin químicos ni aditivos' : lang === 'it' ? 'Senza sostanze chimiche o additivi' : 'No chemicals or additives'}
+          </p>
+        </div>
+        
+        <div class="p-6 bg-green-50 rounded-lg">
+          <div class="text-4xl mb-4">✨</div>
+          <h3 class="text-xl font-semibold mb-2 text-green-700">
+            {lang === 'es' ? 'Premium' : lang === 'it' ? 'Qualità Premium' : 'Premium Quality'}
+          </h3>
+          <p class="text-gray-600">
+            {lang === 'es' ? 'Selección cuidadosa' : lang === 'it' ? 'Selezione accurata' : 'Carefully selected'}
+          </p>
+        </div>
+        
+        <div class="p-6 bg-green-50 rounded-lg">
+          <div class="text-4xl mb-4">🏆</div>
+          <h3 class="text-xl font-semibold mb-2 text-green-700">
+            {lang === 'es' ? 'Certificado' : lang === 'it' ? 'Certificato' : 'Certified'}
+          </h3>
+          <p class="text-gray-600">
+            {lang === 'es' ? 'Calidad garantizada' : lang === 'it' ? 'Qualità garantita' : 'Quality guaranteed'}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+---
+import Layout from '../presentation/layouts/Layout.astro';
+import Header from '../presentation/components/Header.astro';
+import Hero from '../presentation/components/Hero.astro';
+import About from '../presentation/components/About.astro';
+import Products from '../presentation/components/Products.astro';
+import Testimonials from '../presentation/components/Testimonials.astro';
+import ContactForm from '../presentation/components/ContactForm';
+import Footer from '../presentation/components/Footer.astro';
+import { getTranslations } from '../shared/utils/i18n';
+import '../styles/global.css';
+
+const t = getTranslations('it');
+---
+
+<Layout 
+  lang="it" 
+  title="Home" 
+  description="Origano Premium di Qualità - Il miglior origano naturale per le tue ricette. 100% naturale coltivato con i più alti standard di qualità."
+  image="/RaizDelSol.png"
+>
+  <Header lang="it" />
+  <main>
+    <Hero lang="it" />
+    <About lang="it" />
+    <Products lang="it" />
+    <Testimonials lang="it" />
+    <ContactForm client:load lang="it" translations={t.contact} />
+  </main>
+  <Footer lang="it" />
+</Layout>

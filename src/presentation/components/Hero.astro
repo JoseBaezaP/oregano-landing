@@ -1,0 +1,40 @@
+---
+import { getTranslations } from '../../shared/utils/i18n';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const t = getTranslations(lang);
+---
+
+<section id="home" class="relative min-h-screen flex items-center justify-center pt-20 bg-gradient-to-b from-green-50 to-white">
+  <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+    <div class="space-y-6">
+      <h1 class="text-5xl md:text-6xl font-bold text-green-800 leading-tight">
+        {t.hero.title}
+      </h1>
+      <p class="text-xl text-gray-600">
+        {t.hero.subtitle}
+      </p>
+      <a 
+        href="#contact" 
+        class="inline-block bg-green-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-700 transition shadow-lg"
+      >
+        {t.hero.cta}
+      </a>
+    </div>
+    
+    <div class="relative">
+      <video 
+        controls 
+        class="w-full rounded-2xl shadow-2xl"
+        poster="/WhatsApp Image 2025-11-30 at 15.11.13.jpeg"
+      >
+        <source src="/WhatsApp Video 2025-11-30 at 15.10.50.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
