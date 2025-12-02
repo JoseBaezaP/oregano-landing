@@ -18,7 +18,6 @@ const currentPath = Astro.url.pathname;
     </div>
     
     <ul class="hidden md:flex gap-8 items-center">
-      <li><a href={`${lang === 'en' ? '/en' : lang === 'it' ? '/it' : ''}#home`} class="hover:text-green-600 transition">{t.nav.home}</a></li>
       <li><a href={`${lang === 'en' ? '/en' : lang === 'it' ? '/it' : ''}#about`} class="hover:text-green-600 transition">{t.nav.about}</a></li>
       <li><a href={`${lang === 'en' ? '/en' : lang === 'it' ? '/it' : ''}#products`} class="hover:text-green-600 transition">{t.nav.products}</a></li>
       <li><a href={`${lang === 'en' ? '/en' : lang === 'it' ? '/it' : ''}#testimonials`} class="hover:text-green-600 transition">{t.nav.testimonials}</a></li>

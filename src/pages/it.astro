@@ -4,6 +4,7 @@ import Header from '../presentation/components/Header.astro';
 import Hero from '../presentation/components/Hero.astro';
 import About from '../presentation/components/About.astro';
 import Products from '../presentation/components/Products.astro';
+import ExportInfo from '../presentation/components/ExportInfo.astro';
 import Testimonials from '../presentation/components/Testimonials.astro';
 import ContactForm from '../presentation/components/ContactForm';
 import Footer from '../presentation/components/Footer.astro';
@@ -24,6 +25,7 @@ const t = getTranslations('it');
     <Hero lang="it" />
     <About lang="it" />
     <Products lang="it" />
+    <ExportInfo lang="it" />
     <Testimonials lang="it" />
     <ContactForm client:load lang="it" translations={t.contact} />
   </main>

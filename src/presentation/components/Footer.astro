@@ -1,6 +1,8 @@
 ---
 import { getTranslations } from '../../shared/utils/i18n';
 import { COMPANY_INFO, WHATSAPP_LINK } from '../../shared/constants/config';
+import WhatsAppIcon from './icons/WhatsAppIcon.astro';
+import FacebookIcon from './icons/FacebookIcon.astro';
 
 interface Props {
   lang?: string;
@@ -10,40 +12,162 @@ const { lang = 'es' } = Astro.props;
 const t = getTranslations(lang);
 ---
 
-<footer class="bg-green-800 text-white py-12">
-  <div class="container mx-auto px-4">
-    <div class="grid md:grid-cols-3 gap-8 mb-8">
-      <div>
-        <div class="rounded-full bg-white overflow-hidden w-1/4 md:w-1/2 max-md:mx-auto">
-          <img src="/RaizDelSol.png" alt="Logo" class="w-full scale-[.7]" />
+<footer class="bg-gradient-to-br from-green-900 via-green-800 to-emerald-900 text-white">
+  <!-- Main Footer Content -->
+  <div class="container mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-4 gap-12 mb-12">
+      <!-- Brand Section -->
+      <div class="md:col-span-1">
+        <div class="flex flex-col items-center md:items-start space-y-4">
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-3 border border-white/20">
+            <img src="/RaizDelSol.png" alt="Orégano Premium" class="w-16 h-16 object-contain" />
+          </div>
+          <div class="text-center md:text-left">
+            <h3 class="text-xl font-bold text-green-100 mb-2">Orégano Premium</h3>
+            <p class="text-green-200 text-sm leading-relaxed">
+              {lang === 'es' 
+                ? 'El mejor orégano mexicano para el mercado internacional'
+                : lang === 'it'
+                ? 'Il miglior origano messicano per il mercato internazionale'
+                : 'The best Mexican oregano for the international market'}
+            </p>
+          </div>
         </div>
       </div>
-      <div class="md:w-fit max-md:text-center md:mx-auto">
-        <h3 class="text-lg font-semibold mb-4">
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-lg font-semibold mb-6 text-green-100">
           {lang === 'es' ? 'Enlaces Rápidos' : lang === 'it' ? 'Link Rapidi' : 'Quick Links'}
         </h3>
-        <ul class="space-y-2">
-          <li><a href={`${lang === 'en' ? '/en' : lang === 'it' ? '/it' : ''}#home`} class="text-green-100 hover:text-white transition">{t.nav.home}</a></li>
-          <li><a href={`${lang === 'en' ? '/en' : lang === 'it' ? '/it' : ''}#about`} class="text-green-100 hover:text-white transition">{t.nav.about}</a></li>
-          <li><a href={`${lang === 'en' ? '/en' : lang === 'it' ? '/it' : ''}#products`} class="text-green-100 hover:text-white transition">{t.nav.products}</a></li>
-          <li><a href={`${lang === 'en' ? '/en' : lang === 'it' ? '/it' : ''}#contact`} class="text-green-100 hover:text-white transition">{t.nav.contact}</a></li>
+        <ul class="space-y-3">
+          <li><a href={`${lang === 'en' ? '/en' : lang === 'it' ? '/it' : ''}#home`} class="text-green-200 hover:text-white transition-colors duration-200 flex items-center group">
+            <span class="w-1.5 h-1.5 bg-green-400 rounded-full mr-2 group-hover:bg-white transition-colors"></span>
+            {t.nav.home}
+          </a></li>
+          <li><a href={`${lang === 'en' ? '/en' : lang === 'it' ? '/it' : ''}#about`} class="text-green-200 hover:text-white transition-colors duration-200 flex items-center group">
+            <span class="w-1.5 h-1.5 bg-green-400 rounded-full mr-2 group-hover:bg-white transition-colors"></span>
+            {t.nav.about}
+          </a></li>
+          <li><a href={`${lang === 'en' ? '/en' : lang === 'it' ? '/it' : ''}#products`} class="text-green-200 hover:text-white transition-colors duration-200 flex items-center group">
+            <span class="w-1.5 h-1.5 bg-green-400 rounded-full mr-2 group-hover:bg-white transition-colors"></span>
+            {t.nav.products}
+          </a></li>
+          <li><a href={`${lang === 'en' ? '/en' : lang === 'it' ? '/it' : ''}#export-info`} class="text-green-200 hover:text-white transition-colors duration-200 flex items-center group">
+            <span class="w-1.5 h-1.5 bg-green-400 rounded-full mr-2 group-hover:bg-white transition-colors"></span>
+            {t.export.title}
+          </a></li>
+          <li><a href={`${lang === 'en' ? '/en' : lang === 'it' ? '/it' : ''}#contact`} class="text-green-200 hover:text-white transition-colors duration-200 flex items-center group">
+            <span class="w-1.5 h-1.5 bg-green-400 rounded-full mr-2 group-hover:bg-white transition-colors"></span>
+            {t.nav.contact}
+          </a></li>
         </ul>
       </div>
-      <div class="md:w-fit md:ml-auto max-md:text-center">
-        <h3 class="text-lg font-semibold mb-4">
-          {lang === 'es' ? 'Contáctanos' : lang === 'it' ? 'Contattaci' : 'Contact Us'}
+
+      <!-- Export Info -->
+      <div>
+        <h3 class="text-lg font-semibold mb-6 text-green-100">
+          {lang === 'es' ? 'Exportación' : lang === 'it' ? 'Esportazione' : 'Export'}
         </h3>
-        <div class="flex gap-4 max-md:justify-center">
-          <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" class="text-2xl hover:text-green-300 transition">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-            </svg>
-          </a>
+        <div class="space-y-3 text-green-200">
+          <div class="flex items-start space-x-2">
+            <span class="text-green-400 mt-1">🌍</span>
+            <span class="text-sm">
+              {lang === 'es' ? 'Mercado Italiano' : lang === 'it' ? 'Mercato Italiano' : 'Italian Market'}
+            </span>
+          </div>
+          <div class="flex items-start space-x-2">
+            <span class="text-green-400 mt-1">📋</span>
+            <span class="text-sm">
+              {lang === 'es' ? 'Certificación SENASICA' : lang === 'it' ? 'Certificazione SENASICA' : 'SENASICA Certification'}
+            </span>
+          </div>
+          <div class="flex items-start space-x-2">
+            <span class="text-green-400 mt-1">🏆</span>
+            <span class="text-sm">
+              {lang === 'es' ? 'Calidad Premium' : lang === 'it' ? 'Qualità Premium' : 'Premium Quality'}
+            </span>
+          </div>
+          <div class="flex items-start space-x-2">
+            <span class="text-green-400 mt-1">🌱</span>
+            <span class="text-sm">
+              {lang === 'es' ? 'Cultivo Sostenible' : lang === 'it' ? 'Coltivazione Sostenibile' : 'Sustainable Farming'}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact & Social -->
+      <div>
+        <h3 class="text-lg font-semibold mb-6 text-green-100">
+          {lang === 'es' ? 'Conecta con Nosotros' : lang === 'it' ? 'Connettiti con Noi' : 'Connect with Us'}
+        </h3>
+        <div class="space-y-4">
+          <!-- WhatsApp -->
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center">
+              <WhatsAppIcon width={20} height={20} class="text-green-200" />
+            </div>
+            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" class="text-green-200 hover:text-white transition-colors duration-200">
+              {lang === 'es' ? 'WhatsApp' : lang === 'it' ? 'WhatsApp' : 'WhatsApp'}
+            </a>
+          </div>
+
+          <!-- Facebook -->
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+              <FacebookIcon width={20} height={20} class="text-white" />
+            </div>
+            <a href="https://www.facebook.com/RaizdelSoleOficial" target="_blank" rel="noopener noreferrer" class="text-green-200 hover:text-white transition-colors duration-200">
+              Facebook
+            </a>
+          </div>
+        </div>
+          
+          <div class="bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10 mt-5">
+            <p class="text-sm text-green-200 mb-2">
+              {lang === 'es' 
+                ? '¿Interesado en exportar?' 
+                : lang === 'it'
+                ? 'Interessato all\'esportazione?'
+                : 'Interested in exporting?'}
+            </p>
+            <a 
+              href="#contact" 
+              class="inline-flex items-center space-x-2 bg-green-600 hover:bg-green-500 text-white px-4 py-2 rounded-lg transition-colors duration-200 text-sm font-medium"
+            >
+              <span>{t.nav.contact}</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="border-t border-green-700 pt-8 text-center text-green-100">
-      <p>&copy; {COMPANY_INFO.year} {COMPANY_INFO.name}. {t.footer.rights}</p>
+
+    <!-- Bottom Bar -->
+    <div class="container mx-auto border-t border-green-700/50 py-5">
+      <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div class="text-green-200 text-sm">
+          <p>&copy; {COMPANY_INFO.year} {COMPANY_INFO.name}. {t.footer.rights}</p>
+        </div>
+        
+        <div class="flex items-center space-x-6 text-green-200 text-sm">
+          <div class="flex items-center space-x-2">
+            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+            <span>
+              {lang === 'es' ? 'Calidad Mexicana' : lang === 'it' ? 'Qualità Messicana' : 'Mexican Quality'}
+            </span>
+          </div>
+          <div class="hidden md:flex items-center space-x-2">
+            <span>🌿</span>
+            <span>
+              {lang === 'es' ? '100% Natural' : lang === 'it' ? '100% Naturale' : '100% Natural'}
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </footer>

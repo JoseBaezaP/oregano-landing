@@ -1,0 +1,204 @@
+---
+import { getTranslations } from '../../shared/utils/i18n';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const t = getTranslations(lang);
+---
+
+<section id="export-info" class="py-20 bg-gradient-to-br from-emerald-50 to-green-50">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-green-800 mb-6">{t.export.title}</h2>
+        <p class="text-xl text-gray-700 max-w-3xl mx-auto">{t.export.marketAnalysisText}</p>
+      </div>
+
+      <!-- Market Analysis -->
+      <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+        <h3 class="text-2xl font-bold text-green-700 mb-6 flex items-center">
+          <span class="text-3xl mr-3">📊</span>
+          {t.export.marketAnalysis}
+        </h3>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h4 class="font-semibold text-green-600 mb-3">
+              {lang === 'es' ? 'Valor Cultural' : lang === 'it' ? 'Valore Culturale' : 'Cultural Value'}
+            </h4>
+            <p class="text-gray-700 mb-4">
+              {lang === 'es' 
+                ? 'El orégano es un símbolo de la cocina italiana, esencial en pizzas, pastas y salsas, con usos medicinales desde la época grecorromana.'
+                : lang === 'it'
+                ? 'L\'origano è un simbolo della cucina italiana, essenziale in pizze, paste e salse, con usi medicinali dall\'epoca greco-romana.'
+                : 'Oregano is a symbol of Italian cuisine, essential in pizzas, pastas and sauces, with medicinal uses since Greco-Roman times.'}
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-green-600 mb-3">
+              {lang === 'es' ? 'Crecimiento del Mercado' : lang === 'it' ? 'Crescita del Mercato' : 'Market Growth'}
+            </h4>
+            <p class="text-gray-700 mb-4">
+              {lang === 'es'
+                ? 'El mercado global de condimentos de orégano crecerá de $1.43 mil millones a $2.42 mil millones para 2034 (CAGR 5.4%).'
+                : lang === 'it'
+                ? 'Il mercato globale di condimenti di origano crescerà da $1.43 miliardi a $2.42 miliardi entro il 2034 (CAGR 5.4%).'
+                : 'The global oregano seasoning market will grow from $1.43 billion to $2.42 billion by 2034 (CAGR 5.4%).'}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customer Segments -->
+      <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+        <h3 class="text-2xl font-bold text-green-700 mb-6 flex items-center">
+          <span class="text-3xl mr-3">🎯</span>
+          {t.export.customerSegments}
+        </h3>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-blue-50 rounded-lg p-6">
+            <div class="text-2xl mb-3">🏪</div>
+            <h4 class="font-semibold text-blue-800 mb-2">{t.export.supermarkets}</h4>
+            <p class="text-sm text-gray-700">{t.export.supermarketsText}</p>
+          </div>
+          <div class="bg-green-50 rounded-lg p-6">
+            <div class="text-2xl mb-3">🍕</div>
+            <h4 class="font-semibold text-green-800 mb-2">{t.export.foodService}</h4>
+            <p class="text-sm text-gray-700">{t.export.foodServiceText}</p>
+          </div>
+          <div class="bg-orange-50 rounded-lg p-6">
+            <div class="text-2xl mb-3">🏭</div>
+            <h4 class="font-semibold text-orange-800 mb-2">{t.export.industry}</h4>
+            <p class="text-sm text-gray-700">{t.export.industryText}</p>
+          </div>
+          <div class="bg-purple-50 rounded-lg p-6">
+            <div class="text-2xl mb-3">🛍️</div>
+            <h4 class="font-semibold text-purple-800 mb-2">{t.export.gourmet}</h4>
+            <p class="text-sm text-gray-700">{t.export.gourmetText}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Regulations -->
+      <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+        <h3 class="text-2xl font-bold text-green-700 mb-6 flex items-center">
+          <span class="text-3xl mr-3">📋</span>
+          {t.export.regulations}
+        </h3>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="border-l-4 border-green-500 pl-6">
+            <h4 class="font-semibold text-green-700 mb-3">Codex Alimentarius</h4>
+            <p class="text-gray-700 mb-2">
+              {lang === 'es'
+                ? 'Norma CXS 342-2021 que regula el orégano seco (entero, picado o molido).'
+                : lang === 'it'
+                ? 'Norma CXS 342-2021 che regola l\'origano secco (intero, tritato o macinato).'
+                : 'Standard CXS 342-2021 regulating dried oregano (whole, chopped or ground).'}
+            </p>
+          </div>
+          <div class="border-l-4 border-blue-500 pl-6">
+            <h4 class="font-semibold text-blue-700 mb-3">SENASICA</h4>
+            <p class="text-gray-700 mb-2">
+              {lang === 'es'
+                ? 'Certificado Fitosanitario Internacional indispensable para la exportación.'
+                : lang === 'it'
+                ? 'Certificato Fitosanitario Internazionale indispensabile per l\'esportazione.'
+                : 'International Phytosanitary Certificate essential for export.'}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Competition Analysis -->
+      <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+        <h3 class="text-2xl font-bold text-green-700 mb-6 flex items-center">
+          <span class="text-3xl mr-3">⚔️</span>
+          {t.export.competition}
+        </h3>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="border border-gray-200 rounded-lg p-6">
+            <div class="flex items-center mb-4">
+              <span class="text-2xl mr-3">🇹🇷</span>
+              <h4 class="font-semibold text-red-700">{t.export.turkey}</h4>
+            </div>
+            <p class="text-sm text-gray-700">{t.export.turkeyText}</p>
+            <div class="mt-3 text-xs text-red-600 font-semibold">
+              {lang === 'es' ? '80% del mercado' : lang === 'it' ? '80% del mercato' : '80% of market'}
+            </div>
+          </div>
+          <div class="border border-gray-200 rounded-lg p-6">
+            <div class="flex items-center mb-4">
+              <span class="text-2xl mr-3">🇬🇷</span>
+              <h4 class="font-semibold text-blue-700">{t.export.greece}</h4>
+            </div>
+            <p class="text-sm text-gray-700">{t.export.greeceText}</p>
+            <div class="mt-3 text-xs text-blue-600 font-semibold">
+              {lang === 'es' ? 'Segmento premium' : lang === 'it' ? 'Segmento premium' : 'Premium segment'}
+            </div>
+          </div>
+          <div class="border border-gray-200 rounded-lg p-6">
+            <div class="flex items-center mb-4">
+              <span class="text-2xl mr-3">🇪🇸</span>
+              <h4 class="font-semibold text-green-700">{t.export.spain}</h4>
+            </div>
+            <p class="text-sm text-gray-700">{t.export.spainText}</p>
+            <div class="mt-3 text-xs text-green-600 font-semibold">
+              {lang === 'es' ? 'Ventaja UE' : lang === 'it' ? 'Vantaggio UE' : 'EU advantage'}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Our Strategy -->
+      <div class="bg-gradient-to-r from-green-600 to-emerald-600 rounded-2xl p-8 text-white">
+        <h3 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="text-3xl mr-3">🚀</span>
+          {t.export.ourStrategy}
+        </h3>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h4 class="font-semibold mb-3">
+              {lang === 'es' ? 'Diferenciación Clave' : lang === 'it' ? 'Differenziazione Chiave' : 'Key Differentiation'}
+            </h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <span class="text-green-300 mr-2">✓</span>
+                <span>{lang === 'es' ? 'Calidad aromática superior' : lang === 'it' ? 'Qualità aromatica superiore' : 'Superior aromatic quality'}</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-300 mr-2">✓</span>
+                <span>{lang === 'es' ? 'Prácticas sostenibles certificadas' : lang === 'it' ? 'Pratiche sostenibili certificate' : 'Certified sustainable practices'}</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-300 mr-2">✓</span>
+                <span>{lang === 'es' ? 'Tecnología en postcosecha' : lang === 'it' ? 'Tecnologia post-raccolta' : 'Post-harvest technology'}</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-3">
+              {lang === 'es' ? 'Ventajas Competitivas' : lang === 'it' ? 'Vantaggi Competitivi' : 'Competitive Advantages'}
+            </h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <span class="text-green-300 mr-2">✓</span>
+                <span>{lang === 'es' ? 'Autenticidad mexicana' : lang === 'it' ? 'Autenticità messicana' : 'Mexican authenticity'}</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-300 mr-2">✓</span>
+                <span>{lang === 'es' ? 'Control biológico de plagas' : lang === 'it' ? 'Controllo biologico dei parassiti' : 'Biological pest control'}</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-300 mr-2">✓</span>
+                <span>{lang === 'es' ? 'Cumplimiento normativo completo' : lang === 'it' ? 'Conformità normativa completa' : 'Complete regulatory compliance'}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
