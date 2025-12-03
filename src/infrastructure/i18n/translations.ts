@@ -20,7 +20,7 @@ export const translations = {
       marketGrowth: 'Crecimiento del Mercado',
       marketGrowthText: 'Proyección de crecimiento anual compuesto del 5.4% en el mercado global de condimentos de orégano (2024-2034).',
       valueProposition: 'Propuesta de Valor',
-      valuePropositionText: 'Diferenciación through prácticas ecológicas, tecnología aplicada y calidad aromática superior.',
+      valuePropositionText: 'Diferenciación a través de prácticas ecológicas, tecnología aplicada y calidad aromática superior.',
       certifications: 'Certificaciones',
       certificationsText: 'Cumplimiento con Codex Alimentarius y certificación fitosanitaria internacional SENASICA.',
       competitiveAdvantage: 'Ventaja Competitiva',
